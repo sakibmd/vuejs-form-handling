@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js Practice</title>
+  </head>
+  <body>
+
+    <div id="demo">
+
+    </div>
+
+    <script>
+      var name = "Sakib";
+      var fruits = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+      var copyFromArray = fruits.slice(2, 5); //copy hoyeche
+      //var copyFromArray = fruits.splice(2,4); //cut hoyeche
+      //console.log(copyFromArray);
+      //console.log(fruits);
+
+      var day1 = ["Sakib", "Hasan"];
+      var day2 = ["Salman", "Shaker"];
+      var day3 = ["Sabbir", "Tanvir", "Imran"];
+      var totalPerson = [].concat(day1, day2, day3);
+      //console.log(totalPerson);
+
+      for (i in totalPerson) {
+        //console.log(i, "=", totalPerson[i]);
+      }
+
+      var list = ["sun", "", null, 12, undefined, "end"];
+      var validList = [];
+      console.log(list);
+      for (i in list) {
+        if (list[i]) {
+          validList.push(list[i]);
+        }
+      }
+      //console.log(validList);
+
+
+      var title = "Sakib Mohammed";
+      var a = title.split(" ");
+      console.log(title);
+      console.log(a);
+      var b = a.join(" ");
+      console.log(b);
+
+      var rev = title.split("").reverse().join("");
+      console.log(rev);
+
+
+      function dummy(...params){
+        console.log(params.length);
+      }
+      dummy(1,2,3,4);
+      dummy(1,2,3,4,5,6,7);
+
+      function myFunc($a, $n){
+        return $a + $n;
+      }
+      document.getElementById("demo").innerHTML = myFunc(10,12);
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

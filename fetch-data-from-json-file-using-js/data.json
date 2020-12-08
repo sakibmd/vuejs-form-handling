@@ -1,0 +1,49 @@
+{
+  "languages": [
+    {
+      "development": "Laravel",
+      "from": "Sylhet",
+      "id": "161-115-042",
+      "graduate": true,
+      "student": {
+        "gender": "Male",
+        "Age": 24
+      },
+      "friends": [
+        "Hasan",
+        "Salman",
+        "Shaker"
+      ]
+    },
+    {
+      "development": "Nodejs",
+      "from": "Sylhet",
+      "id": "161-115-042",
+      "graduate": true,
+      "student": {
+        "gender": "Male",
+        "Age": 24
+      },
+      "friends": [
+        "Lahin",
+        "Jubayer",
+        "Kamran"
+      ]
+    },
+    {
+      "development": "Php",
+      "from": "Sylhet",
+      "id": "161-115-042",
+      "graduate": true,
+      "student": {
+        "gender": "Male",
+        "Age": 24
+      },
+      "friends": [
+        "Hasin",
+        "Mamun",
+        "Akter"
+      ]
+    }
+  ]
+}

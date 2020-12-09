@@ -67,39 +67,35 @@
             </a>
           </h2>
 
-          <div v-if="errors" class="lead text-center my-3">
-            Fetch Error. Please Check Fetch Conditions Again
-          </div>
-          <div v-else>
-            <p v-if="loading">Loading...</p>
-            <p
-              v-else-if="!loading && allStudentsInfo.length === 0"
-              class="text-center lead"
-            >
-              No Students Found. Please Add Some Student
-            </p>
-            <ul
-              v-else-if="
-                !loading && allStudentsInfo && allStudentsInfo.length > 0
-              "
-            >
-              <li v-for="(item, index) in allStudentsInfo" :key="index">
-                <di class="card m-3">
-                  <div class="card-body">
-                    <strong>Index:</strong> {{ index }}
-                    <br />
-                    <strong>Name:</strong> {{ item.name }} <br />
-                    <strong>Age:</strong> {{ item.age }}<br />
-                    <strong>Department:</strong> {{ item.department }}<br />
-                    <strong>Hobbies: </strong>
-                    <span v-for="item in item.hobby" :key="item">
-                      <strong>#{{ item }} </strong> </span
-                    ><br />
-                  </div>
-                </di>
-              </li>
-            </ul>
-          </div>
+          <p v-if="loading">Loading...</p>
+          <p v-else-if="!loading && errors!=null" class="lead text-center">Fetch Error. Please Check The Condition Again!</p>
+          <p
+            v-else-if="!loading && allStudentsInfo.length === 0"
+            class="text-center lead"
+          >
+            No Students Found. Please Add Some Student
+          </p>
+          <ul
+            v-else-if="
+              !loading && allStudentsInfo && allStudentsInfo.length > 0
+            "
+          >
+            <li v-for="(item, index) in allStudentsInfo" :key="index">
+              <di class="card m-3">
+                <div class="card-body">
+                  <strong>Index:</strong> {{ index }}
+                  <br />
+                  <strong>Name:</strong> {{ item.name }} <br />
+                  <strong>Age:</strong> {{ item.age }}<br />
+                  <strong>Department:</strong> {{ item.department }}<br />
+                  <strong>Hobbies: </strong>
+                  <span v-for="item in item.hobby" :key="item">
+                    <strong>#{{ item }} </strong> </span
+                  ><br />
+                </div>
+              </di>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -179,6 +175,7 @@ export default {
           this.allStudentsInfo = results;
         })
         .catch((error) => {
+          this.loading = false;
           this.errors = error;
         });
     },

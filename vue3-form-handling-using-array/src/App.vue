@@ -90,7 +90,6 @@
 
 <script>
 export default {
-  mounted() {},
   name: "App",
   data() {
     return {
@@ -104,7 +103,6 @@ export default {
   },
   methods: {
     saveUserData() {
-      console.log("Hello");
       this.allUserInfo.push({
         sname: this.name,
         sage: this.age,

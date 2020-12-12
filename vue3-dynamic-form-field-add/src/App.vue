@@ -1,13 +1,17 @@
 <template>
   <div id="app" class="container">
     <h2 class="my-5">Dynamic Form</h2>
+    <label for="name">Enter Name</label>
     <input
+      id="name"
       type="text"
       placeholder="Name"
       v-model="name"
       class="form-control"
     /><br />
+    <label for="age">Enter Age</label>
     <input
+      id="age"
       type="number"
       placeholder="Age"
       v-model="age"
@@ -25,44 +29,66 @@
             <option value="radio">Radio</option>
             <option value="checkbox">Checkbox</option>
           </select>
-          
         </div>
-        <div v-else-if="field.placeholder === ''" >
-          <p>Please enter a placeholder</p>
-          <div class="d-flex">
-          <input type="text" placeholder="enter placeholder"   v-model="placeholder"><a @click="addPlaceholder($event, index)" class="btn btn-dark btn-sm">Enter</a>
-
+        <div v-else-if="field.placeholder === ''">
+          <div v-if="field.type === 'checkbox'">
+            <input
+              type="text"
+              placeholder="Enter Checkbox Text"
+              v-model="label"
+            />
           </div>
-          
+          <div v-else-if="field.type === 'radio'">
+            <input
+              type="text"
+              placeholder="Enter Radio Button Text"
+              v-model="label"
+            />
+          </div>
+          <div v-else>
+            <p>Please enter a placeholder</p>
+            <div class="d-flex">
+              <input
+                type="text"
+                placeholder="enter placeholder"
+                v-model="placeholder"
+              /><br />
+            </div>
+          </div>
+          <a @click="addPlaceholder($event, index)" class="btn btn-dark btn-sm"
+            >Enter</a
+          >
         </div>
         <div v-else>
           <div v-if="field.type === 'text'" class="d-flex my-2">
             <input
-              type="field.type"
+              :type="field.type"
               v-model="field.value"
               :placeholder="field.placeholder"
               class="form-control"
             /><a class="btn btn-danger btn-sm" @click="removeField(index)">X</a>
           </div>
           <div v-if="field.type === 'textarea'" class="d-flex my-2">
-            <textarea :placeholder="field.placeholder"  v-model="field.value" class="form-control" /><a
-              class="btn btn-danger btn-sm"
-              @click="removeField(index)"
-              >X</a
-            >
-          </div>
-          <div v-if="field.type === 'radio'" class="d-flex my-2">
-            <input
-              type="field.type"
+            <textarea
               :placeholder="field.placeholder"
               v-model="field.value"
               class="form-control"
             /><a class="btn btn-danger btn-sm" @click="removeField(index)">X</a>
           </div>
+          <div v-if="field.type === 'radio'" class="d-flex my-2">
+            <input
+              :type="field.type"
+              id="male"
+              name="gender"
+              value="male"
+              v-model="field.value"
+            />
+            {{ field.label }}
+            <a class="btn btn-danger btn-sm" @click="removeField(index)">X</a>
+          </div>
           <div v-if="field.type === 'checkbox'" class="d-flex my-2">
             <input
-              type="field.type"
-              :placeholder="field.placeholder"
+              :type="field.type"
               v-model="field.value"
               class="form-control"
             /><a class="btn btn-danger btn-sm" @click="removeField(index)">X</a>
@@ -71,7 +97,9 @@
       </div>
     </div>
 
-    <button @click="addMoreField" class="btn btn-primary mr-2">Add New Input Field</button>
+    <button @click="addMoreField" class="btn btn-primary mr-2">
+      Add New Input Field
+    </button>
     <button @click="saveToLocalstorage" class="btn btn-success">Save</button>
   </div>
 </template>
@@ -84,7 +112,6 @@ export default {
       name: "",
       age: "",
       moreField: [],
-      placeholder:'',
     };
   },
   methods: {
@@ -92,15 +119,18 @@ export default {
       this.moreField.push({
         type: "",
         value: "",
-        placeholder:""
+        placeholder: "",
+        label: "", //for checkbox & radio button
       });
     },
     onChange(ev, index) {
       this.moreField[index].type = ev.target.value;
     },
-    addPlaceholder(ex, index){
+    addPlaceholder(ex, index) {
       this.moreField[index].placeholder = this.placeholder;
-      this.placeholder = '';
+      this.moreField[index].label = this.label;
+      this.placeholder = "";
+      this.label = "";
     },
     saveToLocalstorage() {
       localStorage.setItem("name", this.name);

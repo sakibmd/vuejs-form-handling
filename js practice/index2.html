@@ -6,39 +6,61 @@
     <title>Js Practice</title>
   </head>
   <body>
+    <div id="demo"></div>
 
-    <div id="demo">
-
+    <div class="container">
+      <ul class="product">
+        <li class="product-item">Shoes</li>
+      </ul>
+      
     </div>
 
     <script>
-        
-       
+      const ul = document.querySelector(".product");
+      const li = document.createElement("li");
+      li.innerText = "Banana";
+      li.className = "product-item";
+      //console.log(li);
+      ul.appendChild(li);
 
-        var n = 10;
-        function myFunc(){
-           let n = 12;
-        }
-        
-        myFunc();
-        console.log(n);
+      
+
+      var n = 10;
+      function myFunc() {
+        let n = 12;
+      }
+
+      myFunc();
+      //console.log(n);
+
+      name = "Sakib";
+      //console.log(name);
+      var name;
+
+      // factorial
+      var fib = 5;
+      for (i = fib - 1; i >= 1; i--) {
+        fib *= i;
+      }
+      //console.log(fib);
 
 
-        name = "Sakib";
-        console.log(name);
-        var name;
+      let info = [
+        name = "Sakib",
+         age = 1024,
+      ];
+      for(i of info){
+        //console.log(i)
+      }
 
-
-
-        // factorial
-        var fib = 5;
-        for(i=fib-1; i>=1; i--){
-          fib*=i;
-        }
-        console.log(fib);
-
-
-
+      let friends = [
+        { name: 'Sabbir', age: 26},
+        { name: 'Shaker', age: 24},
+        { name: 'Ashraf', age: 25},
+      ];
+      for(let i in friends){
+        console.log('Name: '+ friends[i].name);
+      }
     </script>
   </body>
 </html>

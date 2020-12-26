@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1>All Users Info</h1>
+        <ul id="all-user"></ul>
+      </div>
+    </div>
+    <script>
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          const lis = data.map((user) => {
+            let li = document.createElement("li");
+            let text = `Name: ${user.name} & Email: ${user.email}`;
+            let textNode = document.createTextNode(text);
+            li.appendChild(textNode);
+            return li;
+          });
+
+          lis.forEach((li) => {
+            document.getElementById("all-user").appendChild(li);
+          });
+        });
+    </script>
+  </body>
+</html>

@@ -13,11 +13,27 @@
         { name: "Ashraf", age: 25 },
       ];
 
-      console.log(typeof(friends));
+      console.log(typeof friends);
 
-      for (let i in friends){
-          console.log(friends[i]);
+      for (let i in friends) {
+        console.log(friends[i]);
       }
+
+      let dept = ["CSE", "BBA"];
+      for (let i in dept) {
+        console.log(i + "=" + dept[i]);
+      }
+
+      //rest paraemter
+      function restParameter(...params) {
+        console.log(params.length);
+      }
+
+      restParameter(5, 7, 8, 9, 6);
+
+
+
+      
     </script>
   </body>
 </html>

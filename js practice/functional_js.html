@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functional Javascript</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      //use of sort
+      var age = [10, 25, 33, 12, 47, 59, 63, 58, 12, 23, 12, 36, 14];
+      var sortedAge = age.sort((a, b) => {
+        return a - b;
+      });
+      //console.log(sortedAge);
+
+      for (var i = 0; i < 3; i++) {
+        setTimeout(() => {
+          //console.log(i); //output: 3 3 3 for async function (settimeout)
+        }, 200);
+      }
+
+      //use of reduce
+      var taka = [10, 4, 6, 7];
+      var totalTaka = taka.reduce((a, b) => {
+        return a + b;
+      });
+      //console.log(totalTaka);
+
+      //use of filter
+      var names = ["sakib", "salma", "hasan", "tanvir", "nowshad", "nowshin"];
+      var filtered = names.filter((val) => {
+        return val.charAt(0) == "n";
+      });
+      //console.log(filtered);
+
+      var data = [4, 5, 58, 69, 74, 12, 32, 12, 14, 56];
+      var mapData = data.map((val) => {
+        return val + 2;
+      });
+      console.log(mapData)
+    </script>
+  </body>
+</html>

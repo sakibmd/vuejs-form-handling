@@ -28,4 +28,16 @@ fetch("data.json")
         document.querySelector("#area").innerHTML = area;
 
 
+        
+
+        //show in list
+        for (let info of languages) {
+            let ul = document.querySelector("#list");
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(`Id: ${info.id} & Dev: ${info.development}`));
+            li.className = 'list-group-item';
+            ul.appendChild(li);
+        }
+
+
     });

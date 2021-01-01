@@ -30,68 +30,78 @@
             <option value="checkbox">Checkbox</option>
           </select>
         </div>
-        <div v-else-if="field.placeholder === ''">
-          <div v-if="field.type === 'checkbox'">
+        <div v-if="field.placeholder === ''">
+          <p>Please enter a placeholder</p>
+          <div class="d-flex">
             <input
               type="text"
-              placeholder="Enter Checkbox Text"
-              v-model="label"
-            />
-          </div>
-          <div v-else-if="field.type === 'radio'">
-            <input
-              type="text"
-              placeholder="Enter Radio Button Text"
-              v-model="label"
-            />
-          </div>
-          <div v-else>
-            <p>Please enter a placeholder</p>
-            <div class="d-flex">
-              <input
-                type="text"
-                placeholder="enter placeholder"
-                v-model="placeholder"
-              /><br />
-            </div>
+              placeholder="enter placeholder"
+              v-model="placeholder"
+            /><br />
           </div>
           <a @click="addPlaceholder($event, index)" class="btn btn-dark btn-sm"
             >Enter</a
           >
         </div>
+        <div v-if="field.label === ''">
+          <p>Please enter a label</p>
+          <div class="d-flex">
+            <input
+              type="text"
+              placeholder="enter label"
+              v-model="label"
+            /><br />
+          </div>
+          <a @click="addLabel($event, index)" class="btn btn-dark btn-sm"
+            >Enter</a
+          >
+        </div>
         <div v-else>
-          <div v-if="field.type === 'text'" class="d-flex my-2">
-            <input
-              :type="field.type"
-              v-model="field.value"
-              :placeholder="field.placeholder"
-              class="form-control"
-            /><a class="btn btn-danger btn-sm" @click="removeField(index)">X</a>
-          </div>
-          <div v-if="field.type === 'textarea'" class="d-flex my-2">
-            <textarea
-              :placeholder="field.placeholder"
-              v-model="field.value"
-              class="form-control"
-            /><a class="btn btn-danger btn-sm" @click="removeField(index)">X</a>
-          </div>
-          <div v-if="field.type === 'radio'" class="d-flex my-2">
-            <input
-              :type="field.type"
-              id="male"
-              name="gender"
-              value="male"
-              v-model="field.value"
-            />
-            {{ field.label }}
-            <a class="btn btn-danger btn-sm" @click="removeField(index)">X</a>
-          </div>
-          <div v-if="field.type === 'checkbox'" class="d-flex my-2">
-            <input
-              :type="field.type"
-              v-model="field.value"
-              class="form-control"
-            /><a class="btn btn-danger btn-sm" @click="removeField(index)">X</a>
+          <div class="d-flex justify-content-between">
+            <div>
+              <div v-if="field.type === 'text'" class="my-2">
+                <label for="input-field"> {{ field.label }}</label>
+                <input
+                  id="input-field"
+                  :type="field.type"
+                  v-model="field.value"
+                  :placeholder="field.placeholder"
+                  class="form-control"
+                />
+              </div>
+              <div v-if="field.type === 'textarea'" class="my-2">
+                <label> {{ field.label }}</label
+                ><br />
+                <textarea
+                  :placeholder="field.placeholder"
+                  v-model="field.value"
+                  class="form-control"
+                />
+              </div>
+              <div v-if="field.type === 'radio'" class="my-2">
+                <input
+
+                  :type="field.type"
+                  id="male"
+                  name="gender"
+                  value="male"
+                  v-model="field.value"
+                />
+                {{ field.label }}
+               
+                >
+              </div>
+              <div v-if="field.type === 'checkbox'" class="d-flex my-2">
+                <input
+                  :type="field.type"
+                  v-model="field.value"
+                  class="form-control"
+                />{{ field.label }}
+              </div>
+            </div>
+            <div>
+              <a class="btn btn-danger btn-sm" @click="removeField(index)">X</a>
+            </div>
           </div>
         </div>
       </div>
@@ -128,8 +138,10 @@ export default {
     },
     addPlaceholder(ex, index) {
       this.moreField[index].placeholder = this.placeholder;
-      this.moreField[index].label = this.label;
       this.placeholder = "";
+    },
+    addLabel(ex, index) {
+      this.moreField[index].label = this.label;
       this.label = "";
     },
     saveToLocalstorage() {

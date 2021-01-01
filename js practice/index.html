@@ -31,7 +31,7 @@
 
       var list = ["sun", "", null, 12, undefined, "end"];
       var validList = [];
-      console.log(list);
+      //console.log(list);
       for (i in list) {
         if (list[i]) {
           validList.push(list[i]);
@@ -42,17 +42,17 @@
 
       var title = "Sakib Mohammed";
       var a = title.split(" ");
-      console.log(title);
-      console.log(a);
+      //console.log(title);
+      //console.log(a);
       var b = a.join(" ");
-      console.log(b);
+      //console.log(b);
 
       var rev = title.split("").reverse().join("");
-      console.log(rev);
+      //console.log(rev);
 
 
       function dummy(...params){
-        console.log(params.length);
+        //console.log(params.length);
       }
       dummy(1,2,3,4);
       dummy(1,2,3,4,5,6,7);
@@ -64,6 +64,11 @@
 
 
 
+      testFunct();
+      function testFunct(){
+        sakib = 10;
+        console.log(sakib);
+      }
 
 
 

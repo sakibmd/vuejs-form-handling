@@ -12,7 +12,6 @@
       <ul class="product">
         <li class="product-item">Shoes</li>
       </ul>
-      
     </div>
 
     <script>
@@ -22,8 +21,6 @@
       li.className = "product-item";
       //console.log(li);
       ul.appendChild(li);
-
-      
 
       var n = 10;
       function myFunc() {
@@ -44,22 +41,34 @@
       }
       //console.log(fib);
 
-
-      let info = [
-        name = "Sakib",
-         age = 1024,
-      ];
-      for(i of info){
+      let info = [(name = "Sakib"), (age = 1024)];
+      for (i of info) {
         //console.log(i)
       }
 
-      let friends = [
-        { name: 'Sabbir', age: 26},
-        { name: 'Shaker', age: 24},
-        { name: 'Ashraf', age: 25},
+      let students = [
+        { name: "Sabbir", age: 26 },
+        { name: "Shaker", age: 24 },
+        { name: "Ashraf", age: 25 },
       ];
-      for(let i in friends){
-        console.log('Name: '+ friends[i].name);
+      for (let i in students) {
+        console.log("Name: " + students[i].name);
+      }
+
+
+
+      
+      var myMap = new Map();
+      myMap.set("name", "Sakib");
+      myMap.set("age", "24");
+      myMap.set("gender", "male");
+      console.log("Using Map, Name: " + myMap.get("name"));
+      console.log("Using Map, Age: " + myMap.get("age"));
+
+      if (myMap.has("name")) {
+        console.log("Available");
+      } else {
+        console.log("Not Available");
       }
     </script>
   </body>

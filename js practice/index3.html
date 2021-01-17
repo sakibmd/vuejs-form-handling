@@ -6,6 +6,18 @@
     <title>Document</title>
   </head>
   <body>
+
+    <div class="container">
+      <h1 class="title">Hello Bangladesh</h1>
+      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, debitis!</p>
+      <ul>
+        <li class="product">Watch</li>
+        <li class="product">Tv</li>
+        <li class="product">Fan</li>
+      </ul>
+    </div>
+
+
     <script>
       let friends = [
         { name: "Sabbir", age: 26 },
@@ -13,7 +25,7 @@
         { name: "Ashraf", age: 25 },
       ];
 
-      console.log(typeof friends);
+      console.log(typeof friends);  //object
 
       for (let i in friends) {
         console.log(friends[i]);
@@ -30,6 +42,26 @@
       }
 
       restParameter(5, 7, 8, 9, 6);
+
+
+      const oldTitle = document.querySelector(".title");
+      const newTitle = document.createElement("h1");
+      newTitle.textContent = "Hello Sylhet";
+      oldTitle.replaceWith(newTitle); //usign dom we can change tags value
+
+
+      const styleDescription = document.querySelector(".description");
+      styleDescription.style.fontSize = '24px'; //modify paragraph style
+
+      const ul = document.querySelector("ul");
+      const li = document.createElement("li");
+      li.textContent = "Shoes"; //give text content
+      li.className = "product"; //class name add using js dom
+      li.setAttribute("href", "#"); //attribute handling 
+      ul.appendChild(li); //push into ul
+
+
+
 
 
 

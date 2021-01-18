@@ -12,7 +12,7 @@ fetch("data.json")
         let area = [];
         for (let lang of languages) {
             item = `
-                <div class="card my-3 p-3">
+                <div style="width:50%; margin: 0 auto" class="card my-3 p-3">
                 
                     <label>Id</label>
                     <input value=${lang.id} class="form-control" />

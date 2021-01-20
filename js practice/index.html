@@ -72,6 +72,36 @@
 
 
 
+      //fibonacci series using array
+      var arr = [];
+      arr[0] = 0;
+      arr[1] = 1;
+      for(let i=2; i<=15; i++){
+        arr[i] = arr[i-1] +  arr[i-2]; 
+      }
+      console.log(arr);
+
+
+
+
+      //array max min findout
+      var nums = [65,52,26,36,84,45,26,52,36,4,58,5,96,14,52,63,4,7,9,63,255,336,5];
+      nums.sort((a,b) => {
+        return a-b;
+      });
+      console.log('Min number is '+ nums[0]);
+      console.log('Max number is '+ nums[nums.length-1]);
+
+
+      
+
+
+
+
+      
+
+
+
 
     </script>
   </body>

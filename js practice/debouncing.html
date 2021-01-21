@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing</title>
+</head>
+<body>
+    <input type="text" onkeyup="result()">
+
+    <script>
+        function fetchApi(){
+            console.log('Hello Api');
+        }
+
+        function debounce(fn, delay){
+            let timer;
+            return function(){
+                if(timer) clearTimeout(timer);
+                timer = setTimeout(() => {
+                    fn();
+                }, delay);
+            }
+        }
+
+        const result = debounce(fetchApi, 1000);
+    </script>
+</body>
+</html>

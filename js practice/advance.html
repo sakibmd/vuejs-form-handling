@@ -1,54 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advance</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        //normal function
-        function myName() {
-            //console.log(`Sakib Mohammed`);
-        }
-        myName(); //Sakib Mohammed
+      //normal function
+      function myName() {
+        //console.log(`Sakib Mohammed`);
+      }
+      myName(); //Sakib Mohammed
+
+      //anonymous function  --Does not have function name. Just keep this function in a variable
+      var amarNaam = function () {
+        //console.log(`Amar naam Sakib Mohammed`);
+      };
+      amarNaam(); //Amar naam Sakib Mohammed
+
+      //arrow function   --function keyword o use korte hobe na. Just ekta variable e rekhe use kora jay
+      let square = (x) => {
+        //console.log(x*x);
+      };
+      square(5); //25
+
+      //higher order function & callback
+      function checkEvenOrOdd(n) {
+        n % 2 == 0 ? console.log("Even") : console.log("odd");
+      }
+      function higherOrderFunction(callback, value) {
+        callback(value);
+      }
+      higherOrderFunction(checkEvenOrOdd, 65);
 
 
 
-        //anonymous function  --Does not have function name. Just keep this function in a variable
-        var amarNaam = function () {
-            //console.log(`Amar naam Sakib Mohammed`);
-        }
-        amarNaam(); //Amar naam Sakib Mohammed
+      //destructuring
+      var countries = ["Ban", "Ind", "Pakistan", "Japan", "Canada"];
+      const [c1, , c3, ,] = countries; //destructuring from arrays
+      //console.log(c3);
 
 
 
-        //arrow function   --function keyword o use korte hobe na. Just ekta variable e rekhe use kora jay
-        let square = (x) => {
-            //console.log(x*x);
-        }
-        square(5); //25
+      //find & find Index
+      let ages = [14, 16, 25, 85, 96, 23, 64, 22];
+      let expectedAge = ages.find((x) => x > 50);
+      //console.log(expectedAge); //85
+    
+      let expectedAgeIndex = ages.findIndex((x) => x > 50);
+      //console.log(expectedAgeIndex); //3
 
 
 
+      //promise creation
+      const promise1 = new Promise((resolve, reject)=>{
+            let completedPromise = false;
+            if(completedPromise){
+                resolve('Promise 1 Completed');
+            }else{
+                reject('Promise 1 Not Completed');
+            }
+      });
 
+      promise1.then( res => {
+        console.log(res); 
+      })
+      .catch(error => {
+        console.log(error);
+      })
 
-        //destructuring
-        var countries = ["Ban", "Ind", "Pakistan", "Japan", "Canada"];
-        const [c1, , c3, , ] = countries; //destructuring arrays
-        //console.log(c3);
-
-
-        //find & find Index
-        let ages = [14, 16, 25, 85, 96, 23, 64, 22];
-        let expectedAge = ages.find(x => x > 50);
-        console.log(expectedAge); //85
-
-        let expectedAgeIndex = ages.findIndex(x => x > 50);
-        console.log(expectedAgeIndex); //3
     </script>
-</body>
-
+  </body>
 </html>

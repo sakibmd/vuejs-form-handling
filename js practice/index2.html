@@ -41,6 +41,76 @@
       }
       //console.log(fib);
 
+
+
+
+
+
+      //remove duplicate item
+      var totalValue = [1,2,2,1,2,1,4,1,2,3,4,1,2,3,1,2,3];
+      var afterRemoveDuplicate = [];
+      totalValue.forEach((item) => {
+        if (afterRemoveDuplicate.indexOf(item) < 0) {
+          afterRemoveDuplicate.push(item);
+        }
+      });
+      //console.log(afterRemoveDuplicate);
+
+
+
+      //array highest length value
+      function megaFriend(myFriends){
+        let totalFriends = myFriends.length;
+        var highestLengthString = '';
+        var highestLength = 0;
+        for(var i=0; i<totalFriends; i++){
+          if(myFriends[i].length > highestLength){
+            highestLengthString = myFriends[i];
+            highestLength = myFriends[i].length;
+          }
+        }
+        return highestLengthString;
+      }
+      var myFriends = ['Halim', 'Rony', 'Abul', 'Mokbul', 'Aleya', 'Saleha', 'Rukeya'];
+      var myResult =  megaFriend(myFriends);
+      console.log(myResult);
+
+
+
+
+
+      //hotelCost
+      //1st 10 days = 100tk per day; 11-20days = 80tk per day; rest of days = 50tk per day
+      function hotelCost(days){
+        var totalCost;
+        if(days <= 10){
+          totalCost = days * 100;
+        }else if(days <= 20 ){
+          let firstTenDayCost = 10*100;
+          let restOfTheDay = days - 10;
+          let restOfTheDayCost = restOfTheDay * 80;
+          totalCost = firstTenDayCost + restOfTheDayCost;
+        }else{
+          let firstTenDayCost = 10*100;
+          let secondTenDayCost = 10*80;
+          let restOfTheDay = days - 20;
+          let restOfTheDayCost = restOfTheDay * 50;
+          totalCost = firstTenDayCost + secondTenDayCost + restOfTheDayCost;
+        }
+
+        console.log('Total Cost: '+ totalCost);
+      }
+      hotelCost(2);
+
+
+
+
+
+
+
+
+
+
       let info = [(name = "Sakib"), (age = 1024)];
       for (i of info) {
         //console.log(i)
@@ -55,21 +125,17 @@
         //console.log("Name: " + students[i].name);
       }
 
-      
-
-
-      
       var myMap = new Map();
       myMap.set("name", "Sakib");
       myMap.set("age", "24");
       myMap.set("gender", "male");
-      console.log("Using Map, Name: " + myMap.get("name"));
-      console.log("Using Map, Age: " + myMap.get("age"));
+      //console.log("Using Map, Name: " + myMap.get("name"));
+      //console.log("Using Map, Age: " + myMap.get("age"));
 
       if (myMap.has("name")) {
-        console.log("Available");
+        //console.log("Available");
       } else {
-        console.log("Not Available");
+        //console.log("Not Available");
       }
     </script>
   </body>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+
+    <title>Handle Form Data In Array using Vue.js</title>
+  </head>
+  <body>
+    <section id="app">
+      <div class="container">
+        <div class="row justify-content-center my-3">
+          <h2>Student Registration({{ students.length }}) </h2>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <form class="card p-3 mb-4" @submit.prevent="addNewStudent">
+              <div class="form-group">
+                <label for="name">Enter Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  class="form-control"
+                  v-model="name"
+                  placeholder="Enter Name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="age">Enter Age</label>
+                <input
+                  id="age"
+                  type="number"
+                  class="form-control"
+                  v-model="age"
+                  placeholder="Enter Age"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="age">Enter Gender</label><br />
+                <input type="radio" v-model="gender" value="Male" /> Male<br />
+                <input type="radio" v-model="gender" value="Female" />
+                Female<br />
+                <input type="radio" v-model="gender" value="Other" /> Other
+              </div>
+
+              <div class="form-group">
+                <select v-model="division" class="form-control">
+                  <option value="">Enter Your Division</option>
+                  <option value="Dhaka">Dhaka</option>
+                  <option value="Chittagong">Chittagong</option>
+                  <option value="Sylhet">Sylhet</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="age">Enter Hobbies</label> <br />
+                <input type="checkbox" v-model="hobby" value="Coding" /> Coding
+                <br />
+                <input type="checkbox" v-model="hobby" value="Dancing" />
+                Dancing <br />
+                <input type="checkbox" v-model="hobby" value="Sleeping" />
+                Sleeping <br />
+                <input type="checkbox" v-model="hobby" value="Gardening" />
+                Gardening<br />
+              </div>
+
+              <button type="submit" class="btn btn-md btn-info">Submit</button>
+            </form>
+          </div>
+          <div class="col-md-6 card" v-if="students.length > 0">
+            <div
+              class="card p-3 m-3"
+              v-for="(student, index) in students"
+              :key="index"
+            >
+            <div class="d-flex justify-content-between">
+              <div>
+                  <h2>Index: {{ index }}</h2>
+              </div>
+              <div>
+                <a class="btn btn-danger btn-sm float-right" @click="removeStudent(index)">X</a>
+              </div>
+            </div>
+            <hr>
+            <h6>Name: {{ student.name }}  </h6>
+              <h6>Age: {{ student.age }}</h6>
+              <h6>Division: {{ student.division }}</h6>
+              <h6>Gender: {{ student.gender }}</h6>
+              <h6>Hobby:  <span v-for="(item,index) in student.hobby"> #{{ item }} </span></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

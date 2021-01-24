@@ -32,15 +32,15 @@ fetch('https://jsonplaceholder.typicode.com/users')
         }
 
 
-        
-            let userinfo = users.map((x) => {
-                let li = document.createElement("li");
-                li.className = "list-group-item";
-                let text = `Name: ${x.name} & Email: ${x.email}`;
-                li.appendChild(document.createTextNode(text));
-                return li;
-            });
-      
+
+        let userinfo = users.map((x) => {
+            let li = document.createElement("li");
+            li.className = "list-group-item";
+            let text = `Name: ${x.name} & Email: ${x.email}`;
+            li.appendChild(document.createTextNode(text));
+            return li;
+        });
+
         userinfo.forEach(li => {
             document.querySelector(".using-map").appendChild(li);
         });

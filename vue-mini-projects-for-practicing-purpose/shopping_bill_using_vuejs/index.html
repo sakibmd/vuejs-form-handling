@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <title>Shopping Bill</title>
+  </head>
+  <body>
+    <section id="app">
+      <div class="container">
+        <div class="row justify-content-center my-3">
+            <h2>Shopping Bill</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <ul class="list-group">
+              <form @submit.prevent="addNewItem" class="my-5">
+                <input
+                  required
+                  type="text"
+                  class="form-control"
+                  v-model="newItem"
+                  placeholder="Enter New Item"
+                />
+              </form>
+
+              <li class="list-group-item" v-for="(item, index) in items">
+                {{ item.name }} => <input type="number" v-model="item.price" />
+                <a
+                  style="color: aliceblue"
+                  class="btn btn-danger btn-sm float-right"
+                  @click="removeItem(index)"
+                  >remove</a
+                >
+              </li>
+
+              <li
+                class="list-group-item bg-primary text-center"
+                style="color: aliceblue"
+              >
+                Total Price = {{ totalPrice }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

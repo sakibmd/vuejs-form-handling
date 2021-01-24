@@ -41,13 +41,8 @@
       }
       //console.log(fib);
 
-
-
-
-
-
       //remove duplicate item
-      var totalValue = [1,2,2,1,2,1,4,1,2,3,4,1,2,3,1,2,3];
+      var totalValue = [1, 2, 2, 1, 2, 1, 4, 1, 2, 3, 4, 1, 2, 3, 1, 2, 3];
       var afterRemoveDuplicate = [];
       totalValue.forEach((item) => {
         if (afterRemoveDuplicate.indexOf(item) < 0) {
@@ -56,60 +51,84 @@
       });
       //console.log(afterRemoveDuplicate);
 
-
-
       //array highest length value
-      function megaFriend(myFriends){
+      function megaFriend(myFriends) {
         let totalFriends = myFriends.length;
-        var highestLengthString = '';
+        var highestLengthString = "";
         var highestLength = 0;
-        for(var i=0; i<totalFriends; i++){
-          if(myFriends[i].length > highestLength){
+        for (var i = 0; i < totalFriends; i++) {
+          if (myFriends[i].length > highestLength) {
             highestLengthString = myFriends[i];
             highestLength = myFriends[i].length;
           }
         }
         return highestLengthString;
       }
-      var myFriends = ['Halim', 'Rony', 'Abul', 'Mokbul', 'Aleya', 'Saleha', 'Rukeya'];
-      var myResult =  megaFriend(myFriends);
-      console.log(myResult);
+      var myFriends = [
+        "Halim",
+        "Rony",
+        "Abul",
+        "Mokbul",
+        "Aleya",
+        "Saleha",
+        "Rukeya",
+      ];
+      var myResult = megaFriend(myFriends);
+      //console.log(myResult);
 
+      //using foreach to find array's highest length value
+      var myList = [
+        "Himel",
+        "Shimul",
+        "Arif",
+        "Myful",
+        "Salman",
+        "Prosenjit",
+        "Sushmita",
+      ];
+      var strLen = "";
+      myList.forEach((item) => {
+        if (item.length > strLen.length) {
+          strLen = item;
+        }
+      });
+      console.log(strLen);
+
+      
+
+      //find strings highest length value
+      var myString = "I Love Bangladesh so much";
+      var stringHighLength = "";
+      myString.split(" ").forEach((a) => {
+        a.length > stringHighLength.length ? (stringHighLength = a) : "";
+      });
+      console.log(stringHighLength);
 
 
 
 
       //hotelCost
       //1st 10 days = 100tk per day; 11-20days = 80tk per day; rest of days = 50tk per day
-      function hotelCost(days){
+      function hotelCost(days) {
         var totalCost;
-        if(days <= 10){
+        if (days <= 10) {
           totalCost = days * 100;
-        }else if(days <= 20 ){
-          let firstTenDayCost = 10*100;
+        } else if (days <= 20) {
+          let firstTenDayCost = 10 * 100;
           let restOfTheDay = days - 10;
           let restOfTheDayCost = restOfTheDay * 80;
           totalCost = firstTenDayCost + restOfTheDayCost;
-        }else{
-          let firstTenDayCost = 10*100;
-          let secondTenDayCost = 10*80;
+        } else {
+          let firstTenDayCost = 10 * 100;
+          let secondTenDayCost = 10 * 80;
           let restOfTheDay = days - 20;
           let restOfTheDayCost = restOfTheDay * 50;
           totalCost = firstTenDayCost + secondTenDayCost + restOfTheDayCost;
         }
 
-        console.log('Total Cost: '+ totalCost);
+        //console.log('Total Cost: '+ totalCost);
       }
       hotelCost(2);
-
-
-
-
-
-
-
-
-
 
       let info = [(name = "Sakib"), (age = 1024)];
       for (i of info) {

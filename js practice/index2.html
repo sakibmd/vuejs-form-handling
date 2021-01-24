@@ -76,7 +76,8 @@
       var myResult = megaFriend(myFriends);
       //console.log(myResult);
 
-      //using foreach to find array's highest length value
+
+      //find array's highest length element
       var myList = [
         "Himel",
         "Shimul",
@@ -86,15 +87,16 @@
         "Prosenjit",
         "Sushmita",
       ];
-      var strLen = "";
-      myList.forEach((item) => {
-        if (item.length > strLen.length) {
-          strLen = item;
-        }
-      });
-      console.log(strLen);
-
+      var highLenStrUsingForeach = "";  
       
+      myList.forEach((item) => {
+        item.length > highLenStrUsingForeach.length ? highLenStrUsingForeach = item : '';
+      });
+ 
+      console.log(highLenStrUsingForeach);
+      
+
+
 
       //find strings highest length value
       var myString = "I Love Bangladesh so much";
@@ -102,7 +104,7 @@
       myString.split(" ").forEach((a) => {
         a.length > stringHighLength.length ? (stringHighLength = a) : "";
       });
-      console.log(stringHighLength);
+      ///console.log(stringHighLength);
 
 
 

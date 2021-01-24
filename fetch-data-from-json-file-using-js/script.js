@@ -28,7 +28,7 @@ fetch("data.json")
         document.querySelector("#area").innerHTML = area;
 
 
-        
+
 
         //show in list
         for (let info of languages) {

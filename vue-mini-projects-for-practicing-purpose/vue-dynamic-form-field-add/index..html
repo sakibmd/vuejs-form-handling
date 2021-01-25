@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>Dynamic Form</title>
+  </head>
+  <body>
+    <section id="app">
+      <div class="container">
+        <h3 class="text-center">
+          Dynamic Form Field Add ({{ moreFields.length }})
+        </h3>
+        <div class="row justify-content-center">
+          <div class="card col-md-8 p-3 m-3">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                placeholder="Enter Name"
+                v-model="name"
+                class="form-control"
+              /><br />
+
+              <label for="age">Age</label>
+              <input
+                type="number"
+                placeholder="Enter Age"
+                v-model="age"
+                class="form-control"
+              /><br />
+
+              <div v-if="moreFields.length > 0" class="my-2">
+                <div v-for="(field, index) in moreFields" :key="index">
+                  <div
+                    v-if="field.type === '' || field.placeholder === '' || field.label === '' "
+                  >
+                    <hr />
+                    <form
+                      class="card p-3 m-3"
+                      @submit.prevent="newFieldDetails(index)"
+                    >
+                      <h6>
+                        Enter Details For New Field
+                        <a
+                          href=""
+                          @click.prevent="removeInputForm(index)"
+                          class="btn btn-sm btn-danger"
+                          >X</a
+                        >
+                      </h6>
+                      <select
+                        class="form-control"
+                        required
+                        v-model="newFieldType"
+                      >
+                        <option value="">Enter Input Type</option>
+                        <option value="text">Text</option>
+                        <option value="textarea">Textarea</option>
+                        <option value="checkbox">Checkbox</option>
+                        <option value="radio">Radio</option>
+                      </select>
+                      <input
+                        required
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter Input Field Label"
+                        v-model="newFieldLabel"
+                      />
+                      <input
+                        required
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter Input Field placeholder"
+                        v-model="newFieldPlaceholder"
+                      />
+                      <button type="submit" class="btn btn-success">
+                        Confirm
+                      </button>
+                    </form>
+                  </div>
+                  <div v-else>
+                    <div v-if="field.type === 'text'">
+                      <label for="">{{ field.label }}</label>
+                      <input
+                        :type="field.type"
+                        :placeholder="field.placeholder"
+                        class="form-control"
+                      />
+                    </div>
+                    <div v-if="field.type === 'textarea'">
+                      <label for="">{{ field.label }}</label>
+                      <textarea
+                        class="form-control"
+                        :placeholder="field.placeholder"
+                      ></textarea>
+                    </div>
+                    <div v-if="field.type === 'checkbox'">
+                      <input
+                        :type="field.type"
+                        :placeholder="field.placeholder"
+                      />
+                      {{ field.label }} <br />
+                    </div>
+                    <div v-if="field.type === 'radio'">
+                      <input
+                        :type="field.type"
+                        :placeholder="field.placeholder"
+                      />
+                      {{ field.label }} <br />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn btn-primary" @click="addNewField">
+                Add New Fields
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

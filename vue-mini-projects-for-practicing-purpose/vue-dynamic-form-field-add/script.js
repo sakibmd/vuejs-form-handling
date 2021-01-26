@@ -13,7 +13,6 @@ var app = Vue.createApp({
     methods: {
         addNewField() {
             if (this.moreFields.length > 0) {
-                console.log('hello');
                 var lastInput = this.moreFields[this.moreFields.length - 1];
                 if (lastInput.type == '') {
                     return;

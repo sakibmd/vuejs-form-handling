@@ -69,10 +69,9 @@
           </div>
         </div>
         <div class="col-md-8">
-          <div v-if="allStudents.length>0" class="card p-2 m-2">
+          <div v-if="allStudents.length > 0" class="card p-2 m-2">
             <div class="table-responsive">
               <table class="table table-bordered">
-               
                 <thead>
                   <tr>
                     <th scope="col">Name</th>

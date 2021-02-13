@@ -6,10 +6,7 @@
     <title>Js Practice</title>
   </head>
   <body>
-
-    <div id="demo">
-
-    </div>
+    <div id="demo"></div>
 
     <script>
       var name = "Sakib";
@@ -39,7 +36,6 @@
       }
       //console.log(validList);
 
-
       var title = "Sakib Mohammed";
       var a = title.split(" ");
       //console.log(title);
@@ -50,59 +46,105 @@
       var rev = title.split("").reverse().join("");
       //console.log(rev);
 
-
-      function dummy(...params){
+      function dummy(...params) {
         //console.log(params.length);
       }
-      dummy(1,2,3,4);
-      dummy(1,2,3,4,5,6,7);
+      dummy(1, 2, 3, 4);
+      dummy(1, 2, 3, 4, 5, 6, 7);
 
-      function myFunc($a, $n){
+      function myFunc($a, $n) {
         return $a + $n;
       }
-      document.getElementById("demo").innerHTML = myFunc(10,12);
-
-
+      document.getElementById("demo").innerHTML = myFunc(10, 12);
 
       testFunct();
-      function testFunct(){
-        sakib = 'sakib';
+      function testFunct() {
+        sakib = "sakib";
         console.log(sakib);
       }
-
-
 
       //fibonacci series using array
       var arr = [];
       arr[0] = 0;
       arr[1] = 1;
-      for(let i=2; i<=15; i++){
-        arr[i] = arr[i-1] +  arr[i-2]; 
+      for (let i = 2; i <= 15; i++) {
+        arr[i] = arr[i - 1] + arr[i - 2];
       }
       console.log(arr);
 
-
-
-
       //array max min findout
-      var nums = [65,52,26,36,84,45,26,52,36,4,58,5,96,14,52,63,4,7,9,63,255,336,5];
-      nums.sort((a,b) => {
-        return a-b;
+      var nums = [
+        65,
+        52,
+        26,
+        36,
+        84,
+        45,
+        26,
+        52,
+        36,
+        4,
+        58,
+        5,
+        96,
+        14,
+        52,
+        63,
+        4,
+        7,
+        9,
+        63,
+        255,
+        336,
+        5,
+      ];
+      nums.sort((a, b) => {
+        return a - b;
       });
-      console.log('Min number is '+ nums[0]);
-      console.log('Max number is '+ nums[nums.length-1]);
+      console.log("Min number is " + nums[0]);
+      console.log("Max number is " + nums[nums.length - 1]);
+
+      function checkType() {
+        return 10;
+      }
+      console.log(typeof checkType);
+
+      let bonus = 20;
+
+      function sum(first, second) {
+        let result = first + second + bonus;
+        //console.log(bonus);
+        if (result > 9) {
+          var mood = "happy";
+          mood = "fishy";
+          mood = "funky";
+          mood = "cranky";
+          //console.log(mood);
+        }
+        //console.log(day);
+        let day = "friday";
+
+        return result;
+      }
+
+      const output = sum(3, 7);
+      //console.log(bonus);
+      //console.log(output);
 
 
       
+      console.log("first");
 
+      setTimeout(function () {
+        console.log("second");
+      }, 4000);
 
-
-
-      
-
-
-
-
+      setInterval(() => {
+        console.log("amare treat dey");
+      }, 2000);
+      console.log("third");
+      console.log("fourth");
+      console.log("fifth");
     </script>
   </body>
 </html>

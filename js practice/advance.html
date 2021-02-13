@@ -21,14 +21,12 @@
       amarNaam(); //Amar naam Sakib Mohammed
 
       //arrow function   --function keyword o use korte hobe na. Just ekta variable e rekhe use kora jay
-      let square = (x) => {
-        //console.log(x*x);
-      };
+      let square = (x) => console.log(x*x);
       square(5); //25
 
       //higher order function & callback
       function checkEvenOrOdd(n) {
-        n % 2 == 0 ? console.log("Even") : console.log("odd");
+        //n % 2 == 0 ? console.log("Even") : console.log("odd");
       }
       function higherOrderFunction(callback, value) {
         callback(value);
@@ -56,7 +54,7 @@
 
       //promise creation
       const promise1 = new Promise((resolve, reject)=>{
-            let completedPromise = true;
+            let completedPromise = false;
             if(completedPromise){
                 resolve('Promise 1 Completed');
             }else{
